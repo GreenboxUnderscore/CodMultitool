@@ -18,7 +18,7 @@ public class CodTool extends PickaxeItem {
         } else if (tier < 2 && blockstate.isIn(BlockTags.NEEDS_IRON_TOOL)) {
             return false;
         } else {
-            return (tier >= 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
+            return (tier < 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
                     || blockstate.isIn(BlockTags.PICKAXE_MINEABLE) || blockstate.isIn(BlockTags.SHOVEL_MINEABLE));
         }
     }
