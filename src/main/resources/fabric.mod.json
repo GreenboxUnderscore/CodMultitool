@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "codmultitool",
-  "version": "${version}",
+  "version": "1.19.2",
 
   "name": "Cod Multitool",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Cod Multitool",
   "authors": [
-    "Me!"
+    "Greenbox_"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
