@@ -22,7 +22,7 @@ public class CodMultitoolMaterial implements ToolMaterial {
 
     @Override
     public int getMiningLevel() {
-        return 2;
+        return 3;
     }
 
     @Override

@@ -12,7 +12,7 @@ public class CodMultitool implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
+	public static final Logger LOGGER = LoggerFactory.getLogger("MODID");
 	public static final String MODID = "codmultitool";
 
 	@Override
@@ -21,8 +21,11 @@ public class CodMultitool implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Cod Multitool is now swimming up stream.");
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool"), new CodTool(new CodMultitoolMaterial()));
 	}
+
+
+
 }
