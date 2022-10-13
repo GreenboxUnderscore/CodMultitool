@@ -27,9 +27,9 @@ import java.util.function.Predicate;
 
 public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemAccessor, HoeItemAccessor {
 
-    private static final Map<Block, Block> strippedBlocks = AxeItemAccessor.getStrippedBlocks();
-    private static final Map<Block, BlockState> pathStates = ShovelItemAccessor.getPathStates();
-    private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> tilledBlocks = HoeItemAccessor.getTillingActions();
+    private static final Map<Block, Block> STRIPPED_BLOCKS = AxeItemAccessor.getStrippedBlocks();
+    private static final Map<Block, BlockState> PATH_STATES = ShovelItemAccessor.getPathStates();
+    private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();
 
     public CodTool(ToolMaterial material) {
         super(material, 4, -3f, new Item.Settings().group(ItemGroup.TOOLS));
@@ -38,12 +38,12 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     @Override
     public boolean isSuitableFor(BlockState blockstate) {
         int i = this.getMaterial().getMiningLevel();
-        if (i <= 3 && blockstate.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
+        if (i < 3 && blockstate.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
             return false;
-        } else if (i <= 2 && blockstate.isIn(BlockTags.NEEDS_IRON_TOOL)) {
+        } else if (i < 2 && blockstate.isIn(BlockTags.NEEDS_IRON_TOOL)) {
             return false;
         } else {
-            return (i <= 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
+            return (i < 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
                     || blockstate.isIn(BlockTags.PICKAXE_MINEABLE) || blockstate.isIn(BlockTags.SHOVEL_MINEABLE));
         }
     }
@@ -65,11 +65,10 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
         BlockPos blockPos = context.getBlockPos();
         PlayerEntity playerEntity = context.getPlayer();
         BlockState blockState = world.getBlockState(blockPos);
-        Block block = blockState.getBlock();
 
         Optional<BlockState> optional = this.getStrippedState(blockState);
         Optional<BlockState> optional2 = Oxidizable.getDecreasedOxidationState(blockState);
-        Optional<BlockState> optional3 = Optional.ofNullable((Block) ((BiMap) HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get()).get(blockState.getBlock())).map((waxedBlock) -> waxedBlock.getStateWithProperties(blockState));
+        Optional<BlockState> optional3 = Optional.ofNullable((Block) ((BiMap<?, ?>) HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get()).get(blockState.getBlock())).map((waxedBlock) -> waxedBlock.getStateWithProperties(blockState));
         Optional<BlockState> optional4 = Optional.empty();
         ItemStack itemStack = context.getStack();
 
@@ -101,7 +100,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
 
             return ActionResult.success(world.isClient);
         } else {
-            BlockState blockState2 = (pathStates.get(blockState.getBlock()));
+            BlockState blockState2 = (PATH_STATES.get(blockState.getBlock()));
             BlockState blockState3 = null;
             if (blockState2 != null && world.getBlockState(blockPos.up()).isAir()) {
                 world.playSound(playerEntity, blockPos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -128,7 +127,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
 
                 return ActionResult.success(world.isClient);
             } else {
-                Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>> pair = tilledBlocks.get(world.getBlockState(blockPos).getBlock());
+                Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>> pair = TILLING_ACTIONS.get(world.getBlockState(blockPos).getBlock());
                 if (pair == null) {
                 } else {
                     Predicate<ItemUsageContext> predicate = pair.getFirst();
@@ -154,7 +153,6 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     }
 
     private Optional<BlockState> getStrippedState(BlockState state) {
-        return Optional.ofNullable(strippedBlocks.get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
+        return Optional.ofNullable(STRIPPED_BLOCKS.get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
     }
-
 }
