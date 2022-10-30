@@ -1,8 +1,8 @@
 package net.codmultitool;
 
-import net.codmultitool.items.tools.CodMultitoolMaterial;
 import net.codmultitool.items.tools.CodTool;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -23,10 +23,7 @@ public class CodMultitool implements ModInitializer {
 
 		LOGGER.info("Cod Multitool is now swimming up stream.");
 
-		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool"), new CodTool(new CodMultitoolMaterial()));
-		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool_2"), new CodTool(new CodMultitoolMaterial()));
+		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool"), new CodTool(ToolMaterials.IRON));
+		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool_2"), new CodTool(ToolMaterials.IRON));
 	}
-
-
-
 }

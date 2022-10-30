@@ -32,7 +32,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();
 
     public CodTool(ToolMaterial material) {
-        super(material, 4, -3f, new Item.Settings().group(ItemGroup.TOOLS));
+        super(material, 1, -3f, new Item.Settings().group(ItemGroup.TOOLS));
     }
 
     @Override
@@ -94,9 +94,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
             world.setBlockState(blockPos, optional4.get(), 11);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, optional4.get()));
             if (playerEntity != null) {
-                itemStack.damage(1, playerEntity, (p) -> {
-                    p.sendToolBreakStatus(context.getHand());
-                });
+                itemStack.damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
             }
 
             return ActionResult.success(world.isClient);
@@ -120,9 +118,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
                     world.setBlockState(blockPos, blockState3, 11);
                     world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, blockState3));
                     if (playerEntity != null) {
-                        context.getStack().damage(1, playerEntity, (p) -> {
-                            p.sendToolBreakStatus(context.getHand());
-                        });
+                        context.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
                     }
                 }
 
@@ -138,9 +134,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
                         if (!world.isClient) {
                             consumer.accept(context);
                             if (playerEntity != null) {
-                                context.getStack().damage(1, playerEntity, (p) -> {
-                                    p.sendToolBreakStatus(context.getHand());
-                                });
+                                context.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
                             }
                             return ActionResult.success(world.isClient);
                         }
