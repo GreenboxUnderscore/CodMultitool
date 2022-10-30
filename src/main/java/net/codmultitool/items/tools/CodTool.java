@@ -43,8 +43,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
         } else if (i < 2 && blockstate.isIn(BlockTags.NEEDS_IRON_TOOL)) {
             return false;
         } else {
-            return (i < 1 && blockstate.isIn(BlockTags.NEEDS_STONE_TOOL))
-                ? false: (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
+            return (i >= 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
                     || blockstate.isIn(BlockTags.PICKAXE_MINEABLE) || blockstate.isIn(BlockTags.SHOVEL_MINEABLE));
         }
     }
