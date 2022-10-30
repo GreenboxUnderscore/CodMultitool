@@ -24,6 +24,7 @@ public class CodMultitool implements ModInitializer {
 		LOGGER.info("Cod Multitool is now swimming up stream.");
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool"), new CodTool(new CodMultitoolMaterial()));
+		Registry.register(Registry.ITEM, new Identifier(MODID, "cod_multitool_2"), new CodTool(new CodMultitoolMaterial()));
 	}
 
 
