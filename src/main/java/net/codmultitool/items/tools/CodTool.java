@@ -31,8 +31,13 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     private static final Map<Block, BlockState> PATH_STATES = ShovelItemAccessor.getPathStates();
     private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();
 
-    public CodTool(ToolMaterial material) {
-        super(material, 1, -3f, new Item.Settings().group(ItemGroup.TOOLS));
+    public CodTool(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
+        super(material, 0, -0f, settings);
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier(ItemStack itemstack, BlockState blockstate) {
+        return 6f;
     }
 
     @Override
@@ -52,11 +57,6 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     public boolean postHit(ItemStack stack, LivingEntity entity, LivingEntity sourceentity) {
         stack.damage(1, sourceentity, i -> i.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         return true;
-    }
-
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack itemstack, BlockState blockstate) {
-        return 6f;
     }
 
     @Override
