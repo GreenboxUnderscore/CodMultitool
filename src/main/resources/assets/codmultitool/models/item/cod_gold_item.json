@@ -1,0 +1,5 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "codmultitool:item/cod_gold_item"  }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "codmultitool:cod_gold_tool_2"
+    },
+    "addition": {
+        "item": "codmultitool:cod_diamond_item"
+    },
+    "result": {
+        "item": "codmultitool:cod_diamond_tool_2",
+        "count": 1
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "codmultitool:cod_diamond_tool_2"
+    },
+    "addition": {
+        "item": "minecraft:netherite_ingot"
+    },
+    "result": {
+        "item": "codmultitool:cod_netherite_tool_2",
+        "count": 1
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:cod"
+        },
+        {
+            "item": "minecraft:diamond"
+        },
+        {
+            "item": "minecraft:diamond"
+        },
+        {
+            "item": "minecraft:diamond"
+        }
+    ],
+    "result": {
+        "item": "codmultitool:cod_diamond_item",
+        "count": 1
+    }
+}
