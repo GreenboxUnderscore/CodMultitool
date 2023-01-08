@@ -11,10 +11,10 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -41,15 +41,15 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     }
 
     @Override
-    public boolean isSuitableFor(BlockState blockstate) {
+    public boolean isSuitableFor(BlockState state) {
         int i = this.getMaterial().getMiningLevel();
-        if (i < 3 && blockstate.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
+        if (i < 3 && state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
             return false;
-        } else if (i < 2 && blockstate.isIn(BlockTags.NEEDS_IRON_TOOL)) {
+        } else if (i < 2 && state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
             return false;
         } else {
-            return (i < 1 || !blockstate.isIn(BlockTags.NEEDS_STONE_TOOL)) && (blockstate.isIn(BlockTags.AXE_MINEABLE) || blockstate.isIn(BlockTags.HOE_MINEABLE)
-                    || blockstate.isIn(BlockTags.PICKAXE_MINEABLE) || blockstate.isIn(BlockTags.SHOVEL_MINEABLE));
+            return (i < 1 && state.isIn(BlockTags.NEEDS_STONE_TOOL) ?
+                    false : state.isIn(BlockTags.PICKAXE_MINEABLE) || state.isIn(BlockTags.AXE_MINEABLE) || state.isIn(BlockTags.HOE_MINEABLE) || state.isIn(BlockTags.SHOVEL_MINEABLE));
         }
     }
 
