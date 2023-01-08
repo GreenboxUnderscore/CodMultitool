@@ -37,7 +37,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
 
     @Override
     public float getMiningSpeedMultiplier(ItemStack itemstack, BlockState blockstate) {
-        return 6f;
+        return this.getMaterial().getMiningSpeedMultiplier();
     }
 
     @Override
