@@ -1,5 +1,13 @@
 {
-  "item.codmultitool.cod_multitool": "Cod Multitool",
-  "item.codmultitool.cod_multitool_2": "Cod Multitool",
+  "item.codmultitool.cod_iron_tool": "Cod Multitool",
+  "item.codmultitool.cod_iron_tool_2": "Cod Multitool",
+  "item.codmultitool.cod_gold_tool": "Gold Cod Multitool",
+  "item.codmultitool.cod_gold_tool_2": "Gold Cod Multitool",
+  "item.codmultitool.cod_diamond_tool": "Diamond Cod Multitool",
+  "item.codmultitool.cod_diamond_tool_2": "Diamond Cod Multitool",
+  "item.codmultitool.cod_netherite_tool": "Netherite Cod Multitool",
+  "item.codmultitool.cod_netherite_tool_2": "Netherite Cod Multitool",
+  "item.codmultitool.cod_gold_item": "Gold Cod",
+  "item.codmultitool.cod_diamond_item": "Diamond Cod",
   "itemGroup.codmultitool.codmultitool": "Cod Multitool"
 }

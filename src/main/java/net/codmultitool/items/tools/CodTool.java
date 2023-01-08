@@ -31,9 +31,10 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     private static final Map<Block, BlockState> PATH_STATES = ShovelItemAccessor.getPathStates();
     private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();
 
-    public CodTool(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super(material, 0, -0f, settings);
+    public CodTool(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
+
 
     @Override
     public float getMiningSpeedMultiplier(ItemStack itemstack, BlockState blockstate) {
@@ -48,8 +49,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
         } else if (i < 2 && state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
             return false;
         } else {
-            return (i < 1 && state.isIn(BlockTags.NEEDS_STONE_TOOL) ?
-                    false : state.isIn(BlockTags.PICKAXE_MINEABLE) || state.isIn(BlockTags.AXE_MINEABLE) || state.isIn(BlockTags.HOE_MINEABLE) || state.isIn(BlockTags.SHOVEL_MINEABLE));
+            return (i < 1 && state.isIn(BlockTags.NEEDS_STONE_TOOL) || state.isIn(BlockTags.PICKAXE_MINEABLE) || state.isIn(BlockTags.AXE_MINEABLE) || state.isIn(BlockTags.HOE_MINEABLE) || state.isIn(BlockTags.SHOVEL_MINEABLE));
         }
     }
 

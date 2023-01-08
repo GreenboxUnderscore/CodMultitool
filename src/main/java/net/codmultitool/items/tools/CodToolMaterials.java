@@ -1,5 +1,6 @@
 package net.codmultitool.items.tools;
 
+import net.codmultitool.CodMultitool;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -10,14 +11,12 @@ import java.util.function.Supplier;
 
 public enum CodToolMaterials implements ToolMaterial {
 
-    COD(2, 250, 6.0F, 2.0F, 14, () -> Ingredient.ofItems(Items.COD)),
-
     WOOD(0, 59, 2.0F, 0.0F, 15, () -> Ingredient.fromTag(ItemTags.PLANKS)),
     STONE(1, 131, 4.0F, 1.0F, 5, () -> Ingredient.fromTag(ItemTags.STONE_TOOL_MATERIALS)),
-    IRON(2, 250, 6.0F, 2.0F, 14, () -> Ingredient.ofItems(Items.IRON_INGOT)),
-    DIAMOND(3, 1561, 8.0F, 3.0F, 10, () -> Ingredient.ofItems(Items.DIAMOND)),
-    GOLD(0, 32, 12.0F, 0.0F, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
-    NETHERITE(4, 2031, 9.0F, 4.0F, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
+    COD_IRON(2, 250, 6.0F, 2.0F, 14, () -> Ingredient.ofItems(Items.COD)),
+    COD_DIAMOND(3, 1561, 8.0F, 3.0F, 10, () -> Ingredient.ofItems(CodMultitool.COD_DIAMOND_ITEM)),
+    COD_GOLD(0, 32, 12.0F, 0.0F, 22, () -> Ingredient.ofItems(CodMultitool.COD_GOLD_ITEM)),
+    COD_NETHERITE(4, 2031, 9.0F, 4.0F, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;

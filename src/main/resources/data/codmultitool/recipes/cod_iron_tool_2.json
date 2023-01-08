@@ -1,9 +1,9 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        " / ",
-        " / "
+        " ##",
+        " /#",
+        "/  "
     ],
     "key": {
         "#": {
@@ -14,7 +14,7 @@
         }
     },
     "result": {
-        "item": "codmultitool:cod_multitool",
+        "item": "codmultitool:cod_iron_tool_2",
         "count": 1
     }
 }
