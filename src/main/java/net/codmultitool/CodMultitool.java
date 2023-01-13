@@ -3,7 +3,6 @@ package net.codmultitool;
 import net.codmultitool.items.tools.CodTool;
 import net.codmultitool.items.tools.CodToolMaterials;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -33,8 +32,8 @@ public class CodMultitool implements ModInitializer {
 	public static final Item COD_DIAMOND_TOOL_2 = new CodTool(CodToolMaterials.COD_DIAMOND, 1, -2.5f, new Item.Settings());
 	public static final Item COD_NETHERITE_TOOL = new CodTool(CodToolMaterials.COD_NETHERITE, 1, -2.5f, new Item.Settings());
 	public static final Item COD_NETHERITE_TOOL_2 = new CodTool(CodToolMaterials.COD_NETHERITE, 1, -2.5f, new Item.Settings());
-	public static final Item COD_GOLD_ITEM = new Item(new FabricItemSettings());
-	public static final Item COD_DIAMOND_ITEM = new Item(new FabricItemSettings());
+	public static final Item COD_GOLD_ITEM = new Item(new Item.Settings());
+	public static final Item COD_DIAMOND_ITEM = new Item(new Item.Settings());
 	@Override
 	public void onInitialize() {
 
