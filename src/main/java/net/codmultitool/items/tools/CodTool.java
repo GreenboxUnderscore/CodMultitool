@@ -32,7 +32,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
     private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();
 
     public CodTool(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super(material, 0, -0f, settings);
+        super(material, attackDamage, attackSpeed, settings);
     }
 
     @Override
