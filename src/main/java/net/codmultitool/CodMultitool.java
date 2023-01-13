@@ -15,8 +15,8 @@ public class CodMultitool implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("MODID");
 	public static final String MODID = "codmultitool";
 
-	public static final Item COD_TOOL = new CodTool(CodToolMaterials.COD, 1, -3f, new Item.Settings().group(ItemGroup.TOOLS));
-	public static final Item COD_TOOL_2 = new CodTool(CodToolMaterials.COD, 1, -3f, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item COD_TOOL = new CodTool(CodToolMaterials.COD, 1, -2.5f, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item COD_TOOL_2 = new CodTool(CodToolMaterials.COD, 1, -2.5f, new Item.Settings().group(ItemGroup.TOOLS));
 	@Override
 	public void onInitialize() {
 
