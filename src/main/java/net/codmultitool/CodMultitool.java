@@ -52,8 +52,8 @@ public class CodMultitool implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(CODMULTITOOLGROUP).register(entries -> entries.add(COD_GOLD_ITEM));
 		ItemGroupEvents.modifyEntriesEvent(CODMULTITOOLGROUP).register(entries -> entries.add(COD_DIAMOND_ITEM));
 
-		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_iron_tool"), COD_IRON_TOOL);
-		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_iron_tool_2"), COD_IRON_TOOL_2);
+		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_multitool"), COD_IRON_TOOL);
+		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_multitool_2"), COD_IRON_TOOL_2);
 		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_gold_tool"), COD_GOLD_TOOL);
 		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_gold_tool_2"), COD_GOLD_TOOL_2);
 		Registry.register(Registries.ITEM, new Identifier(MODID, "cod_diamond_tool"), COD_DIAMOND_TOOL);

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "codmultitool:cod_iron_tool",
-    "codmultitool:cod_iron_tool_2"
+    "codmultitool:cod_multitooltool",
+    "codmultitool:cod_multitool_2"
   ]
 }
