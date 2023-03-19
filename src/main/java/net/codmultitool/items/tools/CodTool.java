@@ -133,7 +133,7 @@ public class CodTool extends PickaxeItem implements AxeItemAccessor, ShovelItemA
                         if (!world.isClient) {
                             consumer.accept(context);
                             if (playerEntity != null) {
-                                context.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
+                                context.getStack().damage(0, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
                             }
                             return ActionResult.success(world.isClient);
                         }
