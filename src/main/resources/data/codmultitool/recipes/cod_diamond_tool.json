@@ -1,7 +1,7 @@
 {
     "type": "minecraft:smithing",
     "base": {
-        "item": "codmultitool:cod_iron_tool"
+        "item": "codmultitool:cod_multitool"
     },
     "addition": {
         "item": "codmultitool:cod_diamond_item"
